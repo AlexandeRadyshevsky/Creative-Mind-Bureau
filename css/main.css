@@ -1,0 +1,953 @@
+@font-face {
+    font-family: 'PF Din Text Cond Pro';
+    src: url('../fonts/PFDinTextCondPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Din Text Cond Pro';
+    src: url('../fonts/PFDinTextCondPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    font-family: 'PF Din Text Cond Pro', sans-serif;
+    height: 500vh;
+    
+    
+
+}
+
+/* Общий хэдер */
+.main-header {
+    width: 80%;
+    height: 100px; 
+    background: linear-gradient(to bottom, #614D49 50%, #E8E1E0 50%);
+    display: flex;
+    align-items: flex-start; 
+    justify-content: center;
+    clip-path: polygon(3% 0, 100% 0, 100% 100%, 0 100%);
+    margin-left: 13.7rem;
+    margin-top: 2rem;
+    position: relative;
+    max-width: 1217px; /* Ограничение максимальной ширины */
+    
+    
+}
+
+/* Навигация */
+.main-nav {
+    position: absolute;
+    top: 10px; 
+    margin-left: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    
+}
+
+/* Меню */
+.main-menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+/* Ссылки */
+.main-link {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px; 
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background: transparent; 
+    transition: color 0.2s ease;
+    top: -0.3rem;
+    
+}
+
+/* ИКОНКА ПОИСКА */
+.search-icon {
+    display: inline-block;
+    position: relative;
+    top: -3px; 
+}
+
+
+.search-icon img {
+    width: 18px; 
+    height: auto;
+    transition: transform 0.2s ease; 
+}
+
+/* Эффект при наведении */
+.search-icon:hover img {
+    transform: scale(1.1); 
+}
+
+
+.main-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #E8E1E0;
+    clip-path: polygon(9% 0, 98% 0, 90% 100%, 0 100%);
+    z-index: -1;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    transform-origin: center;
+    transform: scale(1);
+    border-radius: 5px;
+    opacity: 0;
+}
+
+
+/* Изменение цвета текста при ховере */
+.main-link:hover {
+    color: #7C6E6B;
+}
+
+
+.main-link:hover::before {
+    transform: scale(1.7);
+    opacity: 1; 
+}
+
+.main-link.hover-enabled {
+    color: #7C6E6B;
+}
+
+.main-link.hover-enabled::before {
+    transform: scale(1.7);
+    opacity: 1;
+}
+
+
+/* Отступ после "Компания" */
+.main-menu li:nth-child(3) { 
+    margin-right: 18.5rem; 
+}
+
+/* "Оставить заявку" */
+.main-menu li:nth-child(4) a {
+    background: #2A1C19;
+    color: white;
+    padding: 0.5em 2em;
+    margin-right: 0.5rem; /* Чуть левее */
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.main-menu li:nth-child(4) a:hover { 
+    background: #3D2925; 
+}
+
+
+.main-menu li:nth-child(4) a::before {
+    display: none; 
+}
+
+/*<<<Нижнее меню>>> */
+
+.bottom-menu {
+    position: absolute;
+    top: 55px; 
+    right: 60%;
+    display: none; 
+    flex-direction: row;
+    gap: 40px;
+    
+    
+}
+
+/* Кнопки в меню */
+.bottom-menu-btn {
+    background: #E8E1E0;
+    color: #503D3A;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    clip-path: polygon(9% 0, 98% 0, 90% 100%, 0 100%);
+    transition: background 0.3s ease, color 0.3s ease, clip-path 0.3s ease;
+    font-family: 'PF Din Text Cond Pro';
+   
+}
+
+
+.bottom-menu.active {
+    display: flex;
+    text-align: left;
+}
+
+
+.bottom-menu-btn:hover {
+    background:#B21F24;
+    color: white;
+}
+
+
+/*Блок с видео */
+.video-container {
+    width: 1435px;
+    height: 760px;
+    position: absolute;
+    top: 133px;
+    border-radius: 4px 0px 0px 0px;
+    overflow: hidden;
+    background: black;
+    aspect-ratio: 16 / 9;
+}
+
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; /* Закругление углов, если нужно */
+}
+
+
+/*Связаться с нами */
+.contact-button {
+    background-color: #B21F24;
+    color: white;
+    padding: 40px 70px;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(9% 0, 100% 0, 100% 100%, 0 100%);
+    display: inline-block;
+    margin-top: 42rem;
+    margin-left: 71.8rem ;
+    text-transform: uppercase; 
+    background: linear-gradient(to bottom, #B21F24 65%, white 25%);
+    transition: background-size 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+
+
+.contact-button p {
+    margin: 0;
+    font-family: 'PF Din Text Cond Pro';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1; 
+    position: relative;
+    top: -20px; 
+    
+}
+
+
+.contact-button:hover {
+    background: linear-gradient(to bottom, #E8E1E0 65%, white 25%); 
+    color: #7C6E6B; 
+    
+}
+
+/*БЛОК С ОПИСАНИЕМ LOREM ISPUM */
+.custom-layout {
+    width: 1500px;
+    height: 1520px;
+    background-color: #F2F2F2;
+    position: absolute;
+    top: 65rem;
+ 
+}
+
+
+h1 {
+    text-align: left; 
+    margin-left: 2rem;
+    font-size: 66px; 
+    font-weight: 500;
+    line-height: 1.5; 
+    letter-spacing: 4px; 
+    margin-top: 4rem;
+}
+
+.red-text {
+    color: #B21F24; 
+}
+
+.brown-text {
+    color: #614D49; 
+}
+
+
+/* Центральная линия*/
+.center-line {
+    width: 900px;
+    height: 2px;
+    background-color: #AA927A;
+    position: absolute;
+    top: 7rem;
+    left: 70%;
+    transform: translateX(-50%); 
+}
+
+/*Описание */
+.description-text {
+    color: #AA927A;
+    font-size: 20px;
+    max-width: 100%;
+    line-height: 1.5;
+    text-align: left;
+    margin-top: 50px; 
+    position: absolute;
+    left: 2rem;
+    top: 15rem;
+    font-weight: 400;
+}
+
+
+
+
+/* Новый правый текстовый блок */
+.right-text-block {
+    position: absolute;
+    top: 550px; 
+    right: 50px; 
+    max-width: 700px;
+}
+
+/* Заголовок для правого блока */
+.right-title {
+    color: #311311;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    
+}
+
+/* Текст правого блока */
+.right-description {
+    color: #AA927A;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    max-width: 100%;
+}
+
+/* Конец текста правого блока */
+
+.image-block {
+    width: 48%;
+    height: 20%;
+    background-color: #E8E1E0;
+    position: absolute;
+    top: 35rem;
+    left: 25%;
+    transform: translateX(-50%); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1; 
+}
+
+
+.image-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 5px; 
+}
+
+/*Кнопка "Подробнее" */
+.more-button {
+    position: absolute;
+    bottom: 41rem; 
+    right: 47.8rem;  
+    background-color: #B21F24;
+    color: white;
+    padding: 20px 70px;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(9% 0, 100% 0, 100% 100%, 0 100%);
+    display: inline-block;
+    text-transform: uppercase;
+    transition: background-size 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.more-button p {
+    margin: 0;
+    font-family: 'PF Din Text Cond Pro';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1; 
+    position: relative;
+
+}
+
+.more-button:hover {
+    background: #E8E1E0;
+    color: #7C6E6B; 
+}
+
+/*Конец кнопки /*
+
+
+/*Ещё один текст */
+.additional-right-text {
+    color: #AA927A;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: left;
+    max-width: 100%;
+    margin-top: 55rem; 
+    margin-left: 2rem;
+}
+
+/*Изображение 2 */
+.bottom-right-image-block {
+    width: 48%;
+    height: 20%;
+    background-color: #E8E1E0;
+    position: absolute;
+    bottom: 5rem; 
+    right: 10px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.bottom-right-image-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 5px; 
+}
+
+
+/*Кнопка "Подробнее" */
+.more-button-2 {
+    position: absolute;
+    bottom: 5rem; 
+    left: 78.4rem;  
+    background-color: #B21F24;
+    color: white;
+    padding: 20px 70px;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(9% 0, 100% 0, 100% 100%, 0 100%);
+    display: inline-block;
+    text-transform: uppercase;
+    transition: background-size 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.more-button-2 p {
+    margin: 0;
+    font-family: 'PF Din Text Cond Pro';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1; 
+    position: relative;
+
+}
+
+.more-button-2:hover {
+    background: #E8E1E0;
+    color: #7C6E6B; 
+}
+
+
+.custom-layout-2 {
+    width: 1500px;
+    height: 760px;
+    background-color: #D9D9D9;
+    position: absolute;
+    top: 170rem;
+ 
+}
+
+.sn-title {
+    font-family: 'PF Din Text Cond Pro';
+    font-size: 90px;
+    font-weight: 600;
+    margin-top: 3rem;
+    letter-spacing: 0.05em;
+    left: 5rem;
+    position: absolute;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #FFFFFF;
+}
+
+.sn-description {
+    font-family: 'PF Din Text Cond Pro';
+    font-size: 24px;
+    font-weight: 400;
+    color: #FFFFFF; 
+    max-width: 800px; 
+    line-height: 1.5;
+    position: absolute;
+    top: 10rem; 
+    left: 5rem; 
+}
+
+.more-button-3 {
+    position: absolute;
+    top: 38rem; 
+    left: 75.4rem;  
+    background: linear-gradient(to bottom, #B21F24 60%, white 40%);
+    color: white;
+    padding: 70px 100px;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(9% 0, 100% 0, 100% 100%, 0 100%);
+    display: inline-block;
+    text-transform: uppercase;
+    transition: background-size 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.more-button-3 p {
+    margin: 0;
+    font-family: 'PF Din Text Cond Pro';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1; 
+    position: relative;
+    top: -2rem;
+    
+
+}
+
+
+.more-button-3:hover {
+    background: linear-gradient(to bottom, #E8E1E0 65%, white 25%); 
+    color: #7C6E6B; 
+}
+
+
+/* Контейнер изображения SN */
+.sn-image-container {
+    position: absolute;
+    right: 25rem;
+    top: 18rem;
+    width: 70%;
+    height: 60%;
+    background-color: #E8E1E0;
+}
+
+/* Изображение SN */
+.sn-image-container img {
+    width: 500px; 
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+.custom-layout-3 {
+    width: 1500px;
+    height: 560px;
+    background: linear-gradient(to right, #AA927A 65%, rgba(242, 241, 240, 0.7) 95%, #F2F1F0 100%);
+    position: absolute;
+    top: 228rem;
+}
+
+
+.final-text{
+    color: #FFFFFF;
+    font-family: 'PF Din Text Cond Pro';
+    font-size: 70px;
+    font-weight: 500;
+    line-height: 5rem;
+    letter-spacing: 0.02em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    position: absolute;
+    left: 3rem;
+    text-transform: uppercase;
+    top: 20%; 
+}
+
+.application-button {
+    position: absolute;
+    bottom: 10rem; 
+    left: 4rem;  
+    background-color: #B21F24;
+    color: white;
+    padding: 30px 70px;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(9% 0, 98% 0, 90% 100%, 0 100%);
+    display: inline-block;
+    text-transform: uppercase;
+    transition: background-size 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.application-button p {
+    margin: 0;
+    font-family: 'PF Din Text Cond Pro';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1; 
+    position: relative;
+
+}
+
+.application-button:hover {
+    background: #E8E1E0;
+    color: #7C6E6B; 
+}
+
+/*ФУТЕР*/
+
+.site-footer {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 3rem 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 220rem;
+    left: 0;
+}
+
+/* Линия над футером */
+.footer-top-line {
+    width: 1328px;
+    height: 0;
+    border-top: 3px solid #D3C8BB;
+    position: absolute;
+    top: 0;
+}
+
+/* Контейнер футера */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1629px; 
+}
+
+/* Левая часть футера (колонки) */
+.footer-columns {
+    display: flex;
+    flex-grow: 1;
+    gap: 5vw;
+    flex-wrap: wrap;
+}
+
+/* Отдельная колонка */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+/* Заголовки */
+.footer-column h4 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #614D49;
+    margin-bottom: 0.5rem;
+}
+
+/* Горизонтальная линия */
+.footer-column hr {
+    width: 100%;
+    height: 2px;
+    background-color: #D3C8BB;
+    border: none;
+    margin-bottom: 10px;
+}
+
+/* Список */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    font-size: 1rem;
+    color: #BFAD9B;
+    margin-bottom: 5px;
+}
+
+/* Активный пункт */
+.footer-column li.active {
+    background-color: #B21F24;
+    color: white;
+    
+    padding: 3px 10px;
+    border-radius: 1px;
+}
+
+/* Выделенные заголовки */
+.footer-column p.highlight {
+    color: #B21F24;
+    font-weight: bold;
+}
+
+/* Правая часть футера (контакты) */
+.footer-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Контейнер контактов */
+.contact-box {
+    background-color: #F2F2F2;
+    padding: 6.5rem;
+    margin-bottom: 5rem;
+    margin-left: 5rem;
+    border-radius: 4px;
+    text-align: center;
+    
+}
+
+/* Контактные данные */
+.contact-box p {
+    font-size: 1rem;
+    color: #614D49;
+    margin: 5px 0;
+    
+}
+
+.location-icon {
+    width: 20px;  
+    height: auto;
+    display: inline-block;
+    margin-bottom: 5px; 
+}
+
+/* Кнопка */
+.contact-button-footer {
+    background-color: #B21F24;
+    font-family: 'PF Din Text Cond Pro';
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 1px;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+    clip-path: polygon(9% 0, 98% 0, 90% 100%, 0 100%);
+}
+
+.contact-button-footer:hover {
+    background: #E8E1E0;
+    color: #7C6E6B; 
+}
+
+/* Нижний подвал */
+.footer-bottom {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #BFAD9B;
+    margin-top: 2rem;
+}
+
+.footer-bottom .creative {
+    color: #B21F24;
+    font-weight: bold;
+}
+
+
+
+/*ФОРМА*/
+
+/* Затемненный фон при открытой форме */
+.contact-form-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Форма */
+.contact-form {
+    background: #fff;
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Кнопка закрытия */
+.close-form {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Описание */
+.form-description {
+    font-size: 16px;
+    margin-bottom: 1.5rem;
+}
+
+/* Поля формы */
+.contact-form label {
+    display: block;
+    font-size: 14px;
+    margin: 10px 0 5px;
+    color: #614D49;
+    font-family: 'PF Din Text Cond Pro';
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #614D49;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    font-family: 'PF Din Text Cond Pro';
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Политика конфиденциальности */
+.policy-text {
+    font-size: 12px;
+    margin-top: 10px;
+    font-family: 'PF Din Text Cond Pro';
+}
+
+.policy-text a {
+    color: #B21F24;
+    text-decoration: none;
+    font-family: 'PF Din Text Cond Pro';
+}
+
+/* Кнопка отправки */
+.submit-button {
+    width: 50%;
+    padding: 12px;
+    background: #B21F24;
+    clip-path: polygon(9% 0, 98% 0, 90% 100%, 0 100%);
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 1rem;
+    font-family: 'PF Din Text Cond Pro';
+}
+
+.submit-button:hover {
+    background: #8a161b;
+}
+
+/* Навигация (по умолчанию скрыта) */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Список ссылок */
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.mobile-nav li {
+    background-color: #614D49;
+    margin: 10px 0;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.mobile-nav a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+/* Кнопка закрытия */
+.close-nav {
+    position: absolute;
+    top: 12rem;
+    right: 20rem;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Меню-кнопка */
+.menu-button-mobile {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-button-mobile img {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+/* Показывать меню только на мобилках */
+@media (max-width: 768px) {
+    .menu-button-mobile {
+        display: block;
+    }
+}
